@@ -68,10 +68,9 @@ class DishDetail extends Component {
         });
     }
 
-    handleComment(values) {
+    handleComment(values, addComment, dishId) {
         this.toggleModal();
-        console.log("Current State is: " + JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
+        addComment(dishId, values.rating, values.name, values.comment);
     }
 
     render() {
@@ -103,7 +102,7 @@ class DishDetail extends Component {
                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                         <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                         <ModalBody>
-                            <LocalForm onSubmit={(values) => this.handleComment(values)}>
+                            <LocalForm onSubmit={(values) => this.handleComment(values,this.props.addComment,this.props.dish.id)}>
                                 <Row className="form-group">
                                     <Label htmlFor="rating" md={12}>Rating</Label>
                                     <Col md={12}>
