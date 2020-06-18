@@ -5,8 +5,6 @@ export const Feedbacks = (state = {
     feedbacks: []
 }, action) => {
     switch(action.type) {
-        case ActionTypes.ADD_FEEDBACKS:
-            return {...state, errMess: null, feedbacks: action.payload};
         case ActionTypes.FEEDBACKS_FAILED:
             return {...state, errMess: action.payload, feedbacks: []};
         case ActionTypes.ADD_FEEDBACKS:

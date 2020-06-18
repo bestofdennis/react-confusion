@@ -45,12 +45,14 @@ function RenderComments({ comments }) {
     if (comments != null) {
         return comments.map((comment) => {
             return (
-                <Fade in>
-                    <li key={comment.id}>
-                        <p>{comment.comment}</p>
-                        <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</p>
-                    </li>
-                </Fade>
+                <div key={comment.id} className="col-12">
+                    <Fade in>
+                        <li key={comment.id}>
+                            <p>{comment.comment}</p>
+                            <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</p>
+                        </li>
+                    </Fade>
+                </div>
             );
         });
     }

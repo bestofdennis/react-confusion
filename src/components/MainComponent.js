@@ -55,13 +55,13 @@ class Main extends Component {
 
     const HomePage = () => {
       return (
-        <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured == true)[0]}
+        <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured === true)[0]}
           dishesLoading={this.props.dishes.isLoading}
           dishesErrMess={this.props.dishes.errMess}
-          leader={this.props.leaders.leaders.filter((leader) => leader.featured == true)[0]}
+          leader={this.props.leaders.leaders.filter((leader) => leader.featured === true)[0]}
           promosLoading={this.props.promotions.isLoading}
           promosErrMess={this.props.promotions.errMess}
-          promotion={this.props.promotions.promotions.filter((promotion) => promotion.featured == true)[0]}
+          promotion={this.props.promotions.promotions.filter((promotion) => promotion.featured === true)[0]}
           leadersLoading={this.props.leaders.isLoading}
           leadersErrMess={this.props.leaders.errMess}
           />
@@ -87,7 +87,7 @@ class Main extends Component {
     }
 
     return (
-      <div>
+      <>
         <Header />
         <TransitionGroup>
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
@@ -102,7 +102,7 @@ class Main extends Component {
           </CSSTransition>
         </TransitionGroup>
         <Footer />
-      </div>
+      </>
     );
   }
 }
